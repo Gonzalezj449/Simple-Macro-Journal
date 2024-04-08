@@ -1,0 +1,45 @@
+import tkinter as tk
+from tkinter import messagebox
+from Page2 import Page2
+
+class Page1(tk.Frame):
+  def __init__(self, parent, controller):
+      tk.Frame.__init__(self, parent)
+      self.controller = controller
+
+      font_style = ("Helvetica", 24, "bold")
+
+      # Create label for Page 1
+      label = tk.Label(self, text= "Emotion Recognition Testing", font=font_style).grid(row=0, column=1)
+
+      dt = '''
+              Welcome to Our App!\n'''
+      #descript_frame = tk.Frame(self,borderwidth=2,relief="groove" ).grid(row=1, column=0, columnspan=3)
+      descript_text = tk.Label(self,text =dt).grid(row=1, column=0, columnspan=3)
+
+      fnameLabel = tk.Label(self, text="Enter Name: ").grid(row=2,column=0)
+      self.fnameEntry = tk.Entry(self)
+      self.fnameEntry.grid(row=2,column=1)
+
+      lnameLabel= tk.Label(self, text="Enter Last Name: ").grid(row=3,column=0)
+      self.lnameEntry = tk.Entry(self)
+      self.lnameEntry.grid(row=3,column=1)
+
+      emailLabel= tk.Label(self, text="Enter E-Mail: ").grid(row=4,column=0)
+      self.emEntry = tk.Entry(self)
+      self.emEntry.grid(row=4,column=1)
+
+      submitButton = tk.Button(self,text="Submit",command=lambda: submit(self)).grid(row=5,column=1)
+
+      # Create button to go to Page 2
+      #button = tk.Button(self, text="Go to Page 2", command=lambda: controller.show_page(Page2))
+      #button.pack()
+def submit(self):
+    fname = self.fnameEntry.get()
+    lname = self.lnameEntry.get()
+    email = self.emEntry.get()
+    if fname.strip() and lname.strip() and email.strip(): #if not empty
+        print(f"{fname} {lname}: {email}")
+        self.controller.show_page(Page2)
+    else:
+        messagebox.showerror("Error","Please do not leave any areas blank. ")
