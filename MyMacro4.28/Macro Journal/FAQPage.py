@@ -18,8 +18,8 @@ class FAQPage(tk.Frame):
         self.text_widget = tk.Text(self, wrap="word", state='disabled', bg=self.controller.bg_color if hasattr(self.controller, 'bg_color') else 'white')
         self.text_widget.grid(row=1, column=0, sticky="nsew", padx=20, pady=20)
 
-        navigate_button = tk.Button(self, text="Go Back")#, command=lambda: self.controller.show_page("OtherPage"))
-        navigate_button.grid(row=2, column=0,pady=10)
+        navigate_button = tk.Button(self, text="Go Back", command=lambda: self.controller.show_page("CaloriePage"))
+        navigate_button.grid(row=2, column=0, pady=10)
 
         # Adding a scrollbar
         scrollbar = ttk.Scrollbar(self, command=self.text_widget.yview)
