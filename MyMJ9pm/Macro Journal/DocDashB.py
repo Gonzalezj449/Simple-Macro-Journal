@@ -17,8 +17,14 @@ class DocDashB(tk.Frame):
         chat_button = tk.Button(self, text="Chat with User", command=self.go_to_chat)
         chat_button.pack(pady=10)
 
-        logout_button = tk.Button(self,text="Logout",command=lambda: self.controller.show_page("LoginPage"),font=("Arial", 10),width=10)logout_button.pack(pady=10)
-
+        logout_button = tk.Button(
+            self,
+            text="Logout",
+            command=lambda: self.controller.show_page("LoginPage"),
+            font=("Arial", 10),
+            width=10)
+        logout_button.pack(pady=10) #FIXED Logout button
+        
     def go_to_chat(self):
         # Navigate to the ChatWithUserForDoc page
         self.controller.show_page("ChatWithUserForDoc")
